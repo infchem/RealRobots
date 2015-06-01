@@ -1,0 +1,19 @@
+[
+    {
+        "modid" : "realrobots",
+        "name" : "RealRobots",
+        "version" : "0.8",
+        "mcversion" : "1.7.10",
+        "url" : "http://www.hancl.de/realrobots",
+        "credits" : "Tinkered by Mirek Hancl (@infchem) for his students.",
+        "authors" : [
+            "Mirek Hancl"
+        ],
+        "description" : "RealRobots adds interfaces to different computer and robotic systems in real life. LEGO\u00ae Mindstorms and WeDo are registered trademarks of the LEGO\u00ae Group which does not sponsor, authorize or endorse my work.",
+        "logoFile" : "pack.png",
+        "updateUrl" : "http://www.hancl.de/realrobots",
+        "parent" : "",
+        "screenshots": [
+        ]
+    }
+]
