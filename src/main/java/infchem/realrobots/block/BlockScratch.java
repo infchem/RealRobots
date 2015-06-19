@@ -117,7 +117,7 @@ public class BlockScratch extends BlockContainer
 
     
 	/**
-	 * Wird ausgeführt, wenn ein Rechtsklick auf den Block erfolgt. Ist output HIGH, erscheint der Block rot. Ist output true, erscheint er grün.
+	 * Wird ausgefï¿½hrt, wenn ein Rechtsklick auf den Block erfolgt. Ist output HIGH, erscheint der Block rot. Ist output true, erscheint er grï¿½n.
 	 */
 	@Override
 	public boolean onBlockActivated(World world, int xCoord, int yCoord, int zCoord, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)

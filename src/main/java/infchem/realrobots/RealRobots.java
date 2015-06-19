@@ -1,10 +1,13 @@
 package infchem.realrobots;
 
+import infchem.realrobots.block.BlockCannybot;
 import infchem.realrobots.block.BlockLeonardo;
 import infchem.realrobots.block.BlockPiInput;
 import infchem.realrobots.block.BlockPiOutput;
 import infchem.realrobots.block.BlockScratch;
 import infchem.realrobots.block.BlockWeDo;
+import infchem.realrobots.cannybot.CannybotMessage;
+import infchem.realrobots.commands.CommandSetCannybot;
 import infchem.realrobots.commands.CommandSetPi;
 import infchem.realrobots.commands.CommandSetScratch;
 import infchem.realrobots.leonardo.LeonardoVPLMessage;
@@ -13,7 +16,9 @@ import infchem.realrobots.scratch.ScratchRRMessage;
 import infchem.realrobots.wedo.WeDoCCMessage;
 import infchem.realrobots.wedo.WeDoRedstoneMessage;
 import infchem.realrobots.wedo.WeDoVPLMessage;
+
 import java.io.File;
+
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
@@ -30,7 +35,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = "realrobots", name = "Real Robots", version = "0.8", dependencies = "after:ComputerCraft", useMetadata = true)
+@Mod(modid = "realrobots", name = "Real Robots", version = "0.8.1", dependencies = "after:ComputerCraft", useMetadata = true)
 public class RealRobots {
 	public static SimpleNetworkWrapper network;
 
@@ -47,6 +52,7 @@ public class RealRobots {
 		public static BlockPiInput piInputBlock;
 		public static BlockPiOutput piOutputBlock;
 		public static BlockScratch scratchBlock;
+		public static BlockCannybot cannybotBlock;
 	}
 
 	// block IDs
@@ -55,6 +61,8 @@ public class RealRobots {
 	public static String piIp;
 	public static boolean scratchEnabled;
 	public static String scratchIp;
+	public static boolean cannybotEnabled;
+	public static String cannybotTime;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -77,6 +85,8 @@ public class RealRobots {
 				WeDoCCMessage.class, 5, Side.SERVER);
 		network.registerMessage(WeDoRedstoneMessage.Handler.class,
 				WeDoRedstoneMessage.class, 6, Side.SERVER);
+		network.registerMessage(CannybotMessage.Handler.class,
+				CannybotMessage.class, 7, Side.CLIENT);
 
 		/**
 		 * Loading configuration file
@@ -95,6 +105,10 @@ public class RealRobots {
 				"Change IP and enable communication here...");
 		this.piEnabled = config.get("scratch", "active", false).getBoolean();
 		this.piIp = config.get("scratch", "IP", "127.0.0.1").getString();
+		// Cannybot
+		config.setCategoryComment("cannybot",
+				"Enable communication here...");
+		this.cannybotEnabled = config.get("cannybot", "active", false).getBoolean();
 		config.save();
 	}
 
@@ -113,6 +127,7 @@ public class RealRobots {
 		ServerCommandManager manager = (ServerCommandManager) command;
 		manager.registerCommand(new CommandSetPi());
 		manager.registerCommand(new CommandSetScratch());
+		manager.registerCommand(new CommandSetCannybot());
 
 	}
 

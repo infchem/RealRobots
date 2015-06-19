@@ -1,6 +1,5 @@
 package infchem.realrobots;
 
-import infchem.realrobots.entity.EntityCannybot;
 import infchem.realrobots.tileentity.TESRWeDo;
 import infchem.realrobots.tileentity.TileEntityWeDo;
 import cpw.mods.fml.client.registry.ClientRegistry;

@@ -48,3 +48,5 @@ item.leonardooutputportlow6.name=set output 6 low
 item.leonardooutputportlow7.name=set output 7 low
 itemGroup.tabScratch=RealRobots for Scratch
 tile.Scratch.name=Scratch Interface
+itemGroup.tabCannybot=RealRobots for Cannybot
+tile.cannybot.name=Cannybot Interface

@@ -4,6 +4,7 @@ import infchem.realrobots.RealRobots.Blocks;
 import infchem.realrobots.block.*;
 import infchem.realrobots.gui.GuiHandler;
 import infchem.realrobots.item.*;
+import infchem.realrobots.tileentity.TileEntityCannybot;
 import infchem.realrobots.tileentity.TileEntityLeonardo;
 import infchem.realrobots.tileentity.TileEntityPiInput;
 import infchem.realrobots.tileentity.TileEntityPiOutput;
@@ -37,9 +38,9 @@ public class CommonProxy {
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealRobots.instance, new GuiHandler());
 		
-		//CallbackSystem wird benötigt, damit Lua Befehle in ComputerCraft für Real Robots Peripherals auf dem Client ausgeführt werden.
+		//CallbackSystem wird benï¿½tigt, damit Lua Befehle in ComputerCraft fï¿½r Real Robots Peripherals auf dem Client ausgefï¿½hrt werden.
 		CallbackSystem.start();	
-		//registerPeripheralProvider wird für ComputerCraft benötigt, damit Real Robots Blöcke als Peripherals verwendet werden können.
+		//registerPeripheralProvider wird fï¿½r ComputerCraft benï¿½tigt, damit Real Robots Blï¿½cke als Peripherals verwendet werden kï¿½nnen.
 		ComputerCraftAPI.registerPeripheralProvider((IPeripheralProvider) RealRobots.Blocks.wedoBlock);
 	}
 
@@ -55,6 +56,8 @@ public class CommonProxy {
 		GameRegistry.registerBlock(RealRobots.Blocks.piOutputBlock.setCreativeTab(tabPi), "pioutput");
 		RealRobots.Blocks.scratchBlock = new BlockScratch(Material.iron);
 		GameRegistry.registerBlock(RealRobots.Blocks.scratchBlock.setCreativeTab(tabScratch), "scratch");
+		RealRobots.Blocks.cannybotBlock = new BlockCannybot(Material.iron);
+		GameRegistry.registerBlock(RealRobots.Blocks.cannybotBlock.setCreativeTab(tabCannybot), "cannybot");
 	}
 	
 	public void registerItems() {
@@ -115,6 +118,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityPiInput.class, "TileEntityPiInput");
 		GameRegistry.registerTileEntity(TileEntityPiOutput.class, "TileEntityPiOutput");
 		GameRegistry.registerTileEntity(TileEntityScratch.class, "TileEntityScratch");
+		GameRegistry.registerTileEntity(TileEntityCannybot.class, "TileEntityCannybot");
 	}
 	
 	public static CreativeTabs tabWeDo = new CreativeTabs("tabWeDo") {
@@ -146,6 +150,14 @@ public class CommonProxy {
 	    @SideOnly(Side.CLIENT)
 	    public Item getTabIconItem() {
 	        return Item.getItemFromBlock(Blocks.scratchBlock);
+	    }
+	};
+	
+	public static CreativeTabs tabCannybot = new CreativeTabs("tabCannybot") {
+	    @Override
+	    @SideOnly(Side.CLIENT)
+	    public Item getTabIconItem() {
+	        return Item.getItemFromBlock(Blocks.cannybotBlock);
 	    }
 	};
 }

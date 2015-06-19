@@ -115,7 +115,7 @@ public class BlockPiInput extends BlockContainer
 
     
 	/**
-	 * Wird ausgeführt, wenn ein Rechtsklick auf den Block erfolgt. Ist output HIGH, erscheint der Block rot. Ist output true, erscheint er grün.
+	 * Wird ausgefï¿½hrt, wenn ein Rechtsklick auf den Block erfolgt. Ist output HIGH, erscheint der Block rot. Ist output true, erscheint er grï¿½n.
 	 */
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
