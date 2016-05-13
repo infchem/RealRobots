@@ -23,25 +23,17 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 
 public class PiMessage implements IMessage {
-	
-	
 
-	
 	private int outputPort;
 	private boolean outputStatus;
 
-	public PiMessage() 
-	{	
+	public PiMessage() {
 	}
-	
-	
-	
+
 	public PiMessage(int outputPort, boolean outputStatus) {
 		this.outputPort = outputPort;
 		this.outputStatus = outputStatus;
 	}
-
-
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
@@ -54,31 +46,28 @@ public class PiMessage implements IMessage {
 		buf.writeInt(this.outputPort);
 		buf.writeBoolean(this.outputStatus);
 	}
-	
-public static class Handler implements IMessageHandler<PiMessage, IMessage> {
-        
-        @Override
-        public IMessage onMessage(PiMessage message, MessageContext ctx) {  
-        	
-        	int outputPort = message.outputPort;
-        	boolean output = message.outputStatus;
-    		String request = "";		
-    		if(output) {
-    			request="setoutput="+Integer.toString(outputPort)+"on";
-    		}
-    		else {
-    			request = "setoutput="+Integer.toString(outputPort)+"off";
-    		}
-    		try {		
-    			ConnectorHTTP httpCon = new ConnectorHTTP();
-				httpCon.request(request);				
-    		} catch (Exception e) {		
-    			e.printStackTrace();
-    		}	
-//        	Runnable r = new RunnableWeDo(message.is);
-//			new Thread(r).start();	
-        	
-            return null; // no response in this case
-        }
-    }
+
+	public static class Handler implements IMessageHandler<PiMessage, IMessage> {
+
+		@Override
+		public IMessage onMessage(PiMessage message, MessageContext ctx) {
+
+			int outputPort = message.outputPort;
+			boolean output = message.outputStatus;
+			String request = "";
+			if (output) {
+				request = "setoutput=" + Integer.toString(outputPort) + "on";
+			} else {
+				request = "setoutput=" + Integer.toString(outputPort) + "off";
+			}
+			try {
+				ConnectorHTTP httpCon = new ConnectorHTTP();
+				httpCon.request(request);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return null; // no response in this case
+		}
+	}
 }

@@ -8,16 +8,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemDontSendRedstone extends Item {
 
-    public ItemDontSendRedstone(String string) {
-    	super();
-            maxStackSize = 64;
-            this.setCreativeTab(CreativeTabs.tabRedstone);
-            this.setUnlocalizedName(string);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        this.itemIcon = par1IconRegister.registerIcon( "realrobots:dontsendredstone");
-    }
+	public ItemDontSendRedstone(String string) {
+		super();
+		maxStackSize = 1;
+		setUnlocalizedName(string);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister par1IconRegister) {
+		itemIcon = par1IconRegister.registerIcon("realrobots:dontsendredstone");
+	}
 }

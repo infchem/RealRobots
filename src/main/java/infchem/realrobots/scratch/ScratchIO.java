@@ -13,6 +13,7 @@ The two types of messages:
 */
 
 import infchem.realrobots.RealRobots;
+import infchem.realrobots.config.ConfigHandler;
 
 import java.io.*;
 import java.net.*;
@@ -34,7 +35,7 @@ private OutputStream out = null;
 public ScratchIO()
 {
  try {
-   scratchSocket = new Socket(RealRobots.scratchIp, SCRATCH_PORT);
+   scratchSocket = new Socket(ConfigHandler.scratchIP, SCRATCH_PORT);
    in = scratchSocket.getInputStream();
    out = scratchSocket.getOutputStream();
  }

@@ -1,5 +1,7 @@
 package infchem.realrobots.leonardo;
 
+import infchem.realrobots.slot.SlotLeonardoActor;
+import infchem.realrobots.slot.SlotLeonardoSensor;
 import infchem.realrobots.tileentity.TileEntityLeonardo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -21,12 +23,12 @@ public class ContainerLeonardo extends Container {
             //and the x-y coordinates it resides on-screen
             for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 3; j++) {
-                            addSlotToContainer(new Slot(tileEntity, j + i * 3, 91 + j * 18, 17 + i * 18));
+                            addSlotToContainer(new SlotLeonardoActor(tileEntity, j + i * 3, 91 + j * 18, 17 + i * 18));
                     }
             }
             	
             // the conditional slot for starting the script
-            addSlotToContainer(new Slot(tileEntity, 9, 43, 17));
+            addSlotToContainer(new SlotLeonardoSensor(tileEntity, 9, 43, 17));
             
             //commonly used vanilla code that adds the player's inventory
             bindPlayerInventory(inventoryPlayer);

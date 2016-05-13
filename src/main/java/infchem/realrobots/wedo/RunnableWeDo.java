@@ -235,11 +235,6 @@ public class RunnableWeDo implements Runnable{
 					}
 					break;
 				case sendredstone:
-//					EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-//		        	TileEntityWeDo tewd = (TileEntityWeDo) player.worldObj.getTileEntity(x,y,z);
-//		        	tewd.setRedstoneStatus(true);
-//		        	tewd.getDescriptionPacket();
-//					player.worldObj.markBlockForUpdate(x, y, z);
 		        	RealRobots.network.sendToServer(new WeDoRedstoneMessage(true,x,y,z));	
 					break;
 				case dontsendredstone:

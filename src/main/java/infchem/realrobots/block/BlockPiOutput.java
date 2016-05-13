@@ -2,6 +2,7 @@ package infchem.realrobots.block;
 
 import ibxm.Player;
 import infchem.realrobots.RealRobots;
+import infchem.realrobots.config.ConfigHandler;
 import infchem.realrobots.pi.PiMessage;
 import infchem.realrobots.tileentity.TileEntityPiInput;
 import infchem.realrobots.tileentity.TileEntityPiOutput;
@@ -99,7 +100,7 @@ public class BlockPiOutput extends BlockContainer {
 								yCoord, zCoord) && tepo.getOutputStatus())) {
 
 					tepo.changeStatus();
-					if (RealRobots.piEnabled) {
+					if (ConfigHandler.piEnabled) {
 						EntityPlayer player = world.getPlayerEntityByName(tepo.playerName);
 						if (player != null)	{
 							RealRobots.network.sendTo(new PiMessage(tepo.getOutputPort(),tepo.getOutputStatus()), (EntityPlayerMP) player);

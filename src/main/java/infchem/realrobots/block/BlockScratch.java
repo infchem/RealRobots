@@ -1,6 +1,7 @@
 package infchem.realrobots.block;
 
 import infchem.realrobots.RealRobots;
+import infchem.realrobots.config.ConfigHandler;
 import infchem.realrobots.pi.PiMessage;
 import infchem.realrobots.scratch.ScratchIO;
 import infchem.realrobots.scratch.ScratchRRMessage;
@@ -146,7 +147,7 @@ public class BlockScratch extends BlockContainer
 								yCoord, zCoord) && tes.getRedstoneStatus()=="1")) {
 
 					tes.changeRedstoneStatus();
-					if (RealRobots.scratchEnabled) {
+					if (ConfigHandler.scratchEnabled) {
 						EntityPlayer player = world.getPlayerEntityByName(tes.getPlayerName());
 						if (player != null)	{
 							 
@@ -189,7 +190,7 @@ public class BlockScratch extends BlockContainer
 		if (tile != null && tile instanceof TileEntityScratch)
 		{
 			TileEntityScratch tes = (TileEntityScratch) tile;
-			if (RealRobots.scratchEnabled) {
+			if (ConfigHandler.scratchEnabled) {
 						EntityPlayer player = world.getPlayerEntityByName(tes.getPlayerName());
 						if (player != null)	{
 							

@@ -8,17 +8,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemInputPort5 extends Item {
 
-    public ItemInputPort5(String string) {
-    	super();
-            maxStackSize = 1;
-           
-            setUnlocalizedName(string);
-            setCreativeTab(CreativeTabs.tabRedstone);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        this.itemIcon = par1IconRegister.registerIcon( "realrobots:leonardoinputport5");
-    }
+	public ItemInputPort5(String string) {
+		super();
+		maxStackSize = 1;
+		setUnlocalizedName(string);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister par1IconRegister) {
+		itemIcon = par1IconRegister.registerIcon("realrobots:leonardoinputport5");
+	}
 }

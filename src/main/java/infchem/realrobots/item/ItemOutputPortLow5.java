@@ -8,17 +8,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemOutputPortLow5 extends Item {
 
-    public ItemOutputPortLow5(String string) {
-    	super();
-            maxStackSize = 1;
-           
-            setUnlocalizedName(string);
-            setCreativeTab(CreativeTabs.tabRedstone);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        this.itemIcon = par1IconRegister.registerIcon( "realrobots:leonardooutputportlow5");
-    }
+	public ItemOutputPortLow5(String string) {
+		super();
+		maxStackSize = 1;
+
+		setUnlocalizedName(string);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister par1IconRegister) {
+		itemIcon = par1IconRegister.registerIcon("realrobots:leonardooutputportlow5");
+	}
 }

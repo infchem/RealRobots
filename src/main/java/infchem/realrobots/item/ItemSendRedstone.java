@@ -10,14 +10,13 @@ public class ItemSendRedstone extends Item {
 
     public ItemSendRedstone(String string) {
     	super();
-            maxStackSize = 64;
-            this.setCreativeTab(CreativeTabs.tabRedstone);
+            maxStackSize = 1;
             this.setUnlocalizedName(string);
     }
     
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.itemIcon = par1IconRegister.registerIcon( "realrobots:sendredstone");
+        itemIcon = par1IconRegister.registerIcon( "realrobots:sendredstone");
     }
 }

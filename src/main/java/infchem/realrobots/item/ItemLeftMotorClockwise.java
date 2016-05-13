@@ -8,17 +8,14 @@ import net.minecraft.item.Item;
 
 public class ItemLeftMotorClockwise extends Item {
 
-        public ItemLeftMotorClockwise(String string) {
-        	super();
-                maxStackSize = 1;
-                setCreativeTab(CreativeTabs.tabRedstone);
-                setUnlocalizedName(string);
-                setTextureName("wedo:lmtr");
-        }
-        
-        @SideOnly(Side.CLIENT)
-        public void registerIcons(IIconRegister par1IconRegister)
-        {
-            this.itemIcon = par1IconRegister.registerIcon( "realrobots:wedoleftmotorclockwise");
-        }
+	public ItemLeftMotorClockwise(String string) {
+		super();
+		maxStackSize = 1;
+		setUnlocalizedName(string);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister par1IconRegister) {
+		itemIcon = par1IconRegister.registerIcon("realrobots:wedoleftmotorclockwise");
+	}
 }

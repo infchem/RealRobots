@@ -3,6 +3,7 @@ package infchem.realrobots.block;
 import ibxm.Player;
 import infchem.realrobots.RealRobots;
 import infchem.realrobots.cannybot.CannybotMessage;
+import infchem.realrobots.config.ConfigHandler;
 import infchem.realrobots.pi.PiMessage;
 import infchem.realrobots.tileentity.TileEntityCannybot;
 import infchem.realrobots.tileentity.TileEntityPiInput;
@@ -93,7 +94,7 @@ public class BlockCannybot extends BlockContainer {
 				if (world.isBlockIndirectlyGettingPowered(xCoord, yCoord,
 						zCoord))  {
 
-					if (RealRobots.cannybotEnabled) {
+					if (ConfigHandler.cannybotEnabled) {
 						EntityPlayer player = world.getPlayerEntityByName(tec.playerName);
 						if (player != null)	{
 							RealRobots.network.sendTo(new CannybotMessage(tec.getDirection()), (EntityPlayerMP) player);

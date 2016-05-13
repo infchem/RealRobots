@@ -8,16 +8,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSleep extends Item {
 
-    public ItemSleep(String string) {
-    	super();
-            maxStackSize = 64;
-            this.setCreativeTab(CreativeTabs.tabRedstone);
-            this.setUnlocalizedName(string);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        this.itemIcon = par1IconRegister.registerIcon( "realrobots:sleep");
-    }
+	public ItemSleep(String string) {
+		super();
+		maxStackSize = 1;
+		this.setUnlocalizedName(string);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister par1IconRegister) {
+		itemIcon = par1IconRegister.registerIcon("realrobots:sleep");
+	}
 }
